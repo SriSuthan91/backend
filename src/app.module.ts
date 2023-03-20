@@ -11,11 +11,11 @@ import { Url } from './entity/url.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3306,
+      host: 'mysql-development',
+      port: 3307,
       username: 'suthan',
-      password: 'suthan123',
-      database: 'url-shortner',
+      password: 'password',
+      database: 'tablb',
       entities: [Url],
       synchronize: true,
     }),UrlsModule],

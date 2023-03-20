@@ -1,0 +1,40 @@
+version: '1'
+
+services:
+
+  mysql-development:
+    image: mysql:8.0.17
+    environment:
+      MYSQL_USER: suthan
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: Suthan123
+      MYSQL_DATABASE: tablb
+      MYSQL_TCP_PORT: 3307
+    ports:
+      - "3307:3307"
+    networks: 
+      - mynetwork   
+
+  backend-service:
+   build: 
+    context: ./
+    dockerfile: ./Dockerfile
+   ports:
+      - "3001:3001"
+   depends_on:
+      - mysql-development
+   networks: 
+      - mynetwork   
+
+  frontend-service:
+   build: 
+    context: ../url-shortner/
+    dockerfile: ../url-shortner/Dockerfile
+   ports:
+      - "3000:3000"
+   depends_on:
+      - backend-service
+
+  networks:
+   mynetwork:
+       
