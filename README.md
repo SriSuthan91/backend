@@ -6,16 +6,18 @@ You should install docker on your machine [https://docs.docker.com/engine/instal
 
 ## Run the project
 
-1. Clone the project:\
- Frontend \
-  git clone https://github.com/SriSuthan91/url-shortner.git
+1. Clone the project:
 
- Backend \
-  git clone https://github.com/SriSuthan91/backend.git
+ Frontend - git clone https://github.com/SriSuthan91/url-shortner.git 
 
-2. locate the backend and run docker commands\
-cd backend\
-docker compose up\
+ Backend - git clone https://github.com/SriSuthan91/backend.git
+ 
+
+2. locate the backend and run docker commands
+```bash
+cd backend
+docker compose up
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the app.
 
@@ -24,7 +26,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 1. Run unit tests for Web
 
-cd url-shortner\
-npm install\
-npm run test\
+```bash
+cd url-shortner
+npm install
+npm run test
+```
 
