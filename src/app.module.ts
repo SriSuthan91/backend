@@ -12,7 +12,7 @@ import { Url } from './entity/url.entity';
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'mysql-development',
-      port: 3307,
+      port: 3306,
       username: 'suthan',
       password: 'password',
       database: 'tablb',
