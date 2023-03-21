@@ -3,7 +3,7 @@ version: '1'
 services:
 
   mysql-development:
-    image: mysql:8.0.17
+    image: mysql
     environment:
       MYSQL_USER: suthan
       MYSQL_PASSWORD: password
@@ -13,7 +13,12 @@ services:
     ports:
       - "3307:3307"
     networks: 
-      - mynetwork   
+      - mynetwork 
+    healthcheck:
+     test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+     interval: 10s
+     timeout: 5s
+     retries: 3
 
   backend-service:
    build: 
@@ -22,8 +27,9 @@ services:
    ports:
       - "3001:3001"
    depends_on:
-      - mysql-development
-   networks: 
+    mysql-development:
+     condition: service_healthy
+   networks:
       - mynetwork   
 
   frontend-service:
@@ -35,6 +41,6 @@ services:
    depends_on:
       - backend-service
 
-  networks:
+networks:
    mynetwork:
        
